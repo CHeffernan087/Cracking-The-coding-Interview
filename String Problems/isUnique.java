@@ -1,5 +1,5 @@
 package String_Problems;
-
+//The time complexity for my solution is O(N) which is the best possible run time for this particular problem
 public class isUnique {
 	
 	public static final int NUMBER_OF_ASCII_CHARS = 256;
@@ -22,8 +22,8 @@ public class isUnique {
 		if(str ==null ) {return false;}
 		
 		Boolean[] alpha  = new Boolean[NUMBER_OF_ASCII_CHARS];		// instanciate alphabet array
-		setToFalse(alpha);											// set all alphabet values to false
-		str.toLowerCase();											// insure that a string with duplicate capital and small chars returns false
+		setToFalse(alpha);						// set all alphabet values to false
+		str.toLowerCase();						// insure that a string with duplicate capital and small chars returns false
 		
 		for(int i=0;i<str.length();i++) 
 		{
