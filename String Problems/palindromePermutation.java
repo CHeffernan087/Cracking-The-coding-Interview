@@ -6,7 +6,7 @@ public class palindromePermutation {
 	{
 		System.out.println(palindromePermutation("aNvan"));		// => true
 		System.out.println(palindromePermutation("Conor"));		// => false
-		System.out.println(palindromePermutation("raceCAR"));	// => true
+		System.out.println(palindromePermutation("raceCAR"));		// => true
 		System.out.println(palindromePermutation(""));			// => false
 		System.out.println(palindromePermutation(null));		// => false
 	}
@@ -46,7 +46,5 @@ public class palindromePermutation {
 		}
 		
 		return numberOfOnes <2;
-		
-
 	}
 }
