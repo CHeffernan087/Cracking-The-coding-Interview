@@ -5,9 +5,9 @@ public class CompressString {
 	public static void main(String[] args) {
 		
 		System.out.println(compressString("aaaaaaaaaaaaaaabbaaa"));			//	a15b2a3
-		System.out.println(compressString("Conor"));						//	Conor
-		System.out.println(compressString(null));							// ""
-		System.out.println(compressString(""));								// ""
+		System.out.println(compressString("Conor"));					//	Conor
+		System.out.println(compressString(null));					// 	""
+		System.out.println(compressString(""));						// 	""
 		
 
 	}
