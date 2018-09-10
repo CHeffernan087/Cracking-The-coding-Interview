@@ -5,14 +5,14 @@ public class OneEdit
 	public static void main(String[] args) 
 	{
 		System.out.println(oneEdit("pet","pest"));			// check insertion						=> true
-		System.out.println(oneEdit("Giraffe","iraffe"));	// check delete  						=> true
-		System.out.println(oneEdit("Knife","Nnife"));		// check character change				=> true
-		System.out.println(oneEdit("pet","step"));			// check more than one change			=> false
-		System.out.println(oneEdit("Conor","Conor"));		// check same string					=> false
-		System.out.println(oneEdit("Conor","Conor "));  	// check same string with one insertion	=> true
-		System.out.println(oneEdit("",""));					// check empty string					=> false
-		System.out.println(oneEdit("","a"));				// check single char insertion			=> true
-		System.out.println(oneEdit("hi",null));				// check invalid input					=> false
+		System.out.println(oneEdit("Giraffe","iraffe"));		// check delete  						=> true
+		System.out.println(oneEdit("Knife","Nnife"));			// check character change					=> true
+		System.out.println(oneEdit("pet","step"));			// check more than one change					=> false
+		System.out.println(oneEdit("Conor","Conor"));			// check same string						=> false
+		System.out.println(oneEdit("Conor","Conor "));  		// check same string with one insertion				=> true
+		System.out.println(oneEdit("",""));				// check empty string						=> false
+		System.out.println(oneEdit("","a"));				// check single char insertion					=> true
+		System.out.println(oneEdit("hi",null));				// check invalid input						=> false
 		
 	}
 	
@@ -34,14 +34,14 @@ public class OneEdit
 	{
 		if(s1 == null || s2 == null ||(s1.equals("")&& s2.equals(""))) {return false;}
 		
-		int difference  = Math.abs(s1.length()-s2.length());								//difference in length between two strings (should be 1 or 0)
+		int difference  = Math.abs(s1.length()-s2.length());						//difference in length between two strings (should be 1 or 0)
 		if(difference > 1) {return false;}
 		
 		String shortString,longString;
-		if(s1.length()<s2.length())															// determine which string is longer
+		if(s1.length()<s2.length())									// determine which string is longer
 		{
-				shortString = s1; 
-				longString = s2;
+			shortString = s1; 
+			longString = s2;
 		}					
 		else 
 		{
@@ -63,13 +63,13 @@ public class OneEdit
 				continue;
 			}
 			else 
-			{																				// if you find chars that are  different, advance longpointer
-				numberOfDifferences++;														// only advance short pointer if length of words is the same, else leave short pointer where its pointing to
-				shortPointer+=offset;														// all other chars should then be the same if the strings are one edit away
+			{											// if you find chars that are  different, advance longpointer
+				numberOfDifferences++;								// only advance short pointer if length of words is the same, else leave short pointer where its pointing to
+				shortPointer+=offset;								// all other chars should then be the same if the strings are one edit away
 				longPointer++;
 			}
 			if(numberOfDifferences>1) {return false;}
 		}
-		return (numberOfDifferences >0 || difference == 1);									// deals with edge cases where words are the same or the same plus an additional char at the end
+		return (numberOfDifferences >0 || difference == 1);						// deals with edge cases where words are the same or the same plus an additional char at the end
 	}
 }
