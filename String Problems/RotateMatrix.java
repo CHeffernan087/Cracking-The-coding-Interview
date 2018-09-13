@@ -80,12 +80,12 @@ public class RotateMatrix {
 			{
 				int pix1 = matrix[i][j];
 				int pix2 = matrix[j][rowLength-(i+1)];
-				int pix3 = matrix[columnLength-(i+1)][rowLength-(j+1)];							//Back up all pixels we intend to swap
+				int pix3 = matrix[columnLength-(i+1)][rowLength-(j+1)];				//Back up all pixels we intend to swap
 				int pix4 = matrix[columnLength-(j+1)][i];
 				
 				matrix[i][j] = pix4;
 				matrix[columnLength-(j+1)][i] = pix3;
-				matrix[columnLength-(i+1)][rowLength-(j+1)] = pix2;								//swap pixels to new correct place in matrix
+				matrix[columnLength-(i+1)][rowLength-(j+1)] = pix2;				//swap pixels to new correct place in matrix
 				matrix[j][rowLength-(i+1)] = pix1;
 				
 			}
