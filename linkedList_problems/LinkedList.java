@@ -3,11 +3,22 @@ package LinkedList_Problems;
 public class LinkedList<Key, Value extends Comparable<Key>> {
 	
 	Node head;
+	Node tail;
 	int size = 0;
 	
 	LinkedList(Key key, Value val)
 	{
 		head = new Node(key, val);
+	}
+	
+	public void swapNodes(Node n1, Node n2) {
+		Node tmpPrev = n1.getPrev();
+		Node tmpNext = n1.getNext();
+		
+		n1.setNext(n2.getNext());
+		n1.setPrev(n2.getPrev());
+		n2.setNext(tmpNext);
+		n2.setPrev(tmpPrev);
 	}
 	
 	public void put(Key key, Value val) 
@@ -21,6 +32,8 @@ public class LinkedList<Key, Value extends Comparable<Key>> {
 		{
 			Node newNode = new Node(key,val);
 			n.setNext(newNode);
+			newNode.setPrev(n);
+			tail = newNode;
 			return;
 		}
 		else {
@@ -70,6 +83,11 @@ public class LinkedList<Key, Value extends Comparable<Key>> {
 	{
 		
 		printList(this.head);
+	}
+	
+	public Node getHead() 
+	{
+		return this.head;
 	}
 	
 }

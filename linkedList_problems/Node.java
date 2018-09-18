@@ -17,6 +17,11 @@ public class Node<Key,Value> {
 		this.next = n;
 	}
 	
+	public void setPrev(Node n) 
+	{
+		this.previous = n;
+	}
+	
 	public Node getNext() 
 	{
 		return next;
@@ -25,6 +30,18 @@ public class Node<Key,Value> {
 	public Node getPrev() 
 	{
 		return previous;
+	}
+	
+	public void deleteNode() 
+	{
+		
+		Node next = this.getNext();
+		Node prev = this.getPrev();
+		
+		this.previous.setNext(next);
+		if(this.next!=null) {
+		this.next.setPrev(prev);
+		}
 	}
 	
 }
