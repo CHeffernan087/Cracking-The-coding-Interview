@@ -11,13 +11,29 @@ public class DeleteDuplicates<Key,Value extends Comparable<Key>> {
 		list.put("Marie", 1);
 		list.put("Fearghal", 2);
 		list.put("Conor", 3);
+		list.put("Conor", 3);
 		list.put("Marie",1);
-		list.printList();
-		System.out.println();
+		list.put("Conor", 3);
+		list.put("Conor", 3);
+		list.put("Conor", 3);
+		list.put("Marie",1);
+		list.put("Conor", 3);
+		list.put("Conor", 3);
+		list.put("Conor", 3);
+		list.put("Conor", 3);
+		list.put("Conor", 3);
+		list.put("Conor", 3);
+		list.put("Conor", 3);
+		list.put("Conor", 3);
+		list.put("Conor", 3);
+		
+		//list.printList();
+		//System.out.println();
 		
 		//deleteDuplicates_NRuntime(list);
 		deleteDuplicates_spaceOptimised(list);
 		list.printList();
+		
 		
 	}
 	
@@ -41,24 +57,44 @@ public class DeleteDuplicates<Key,Value extends Comparable<Key>> {
 	
 	public static void deleteDuplicates_spaceOptimised(LinkedList list) 
 	{
-		deleteDuplicates(list.getHead(),(String) list.getHead().key);
+		Node n = list.head;
+				while(n!=null) 
+				{
+					Node next = n.getNext();
+					while(next!=null) 
+					{
+						if(next.key.equals(n.key)) 
+						{
+							next.deleteNode();
+						}
+						next= next.getNext();
+					}
+					n = n.getNext();
+				}
+				
+				return;
 	}
 	
-	private static void deleteDuplicates(Node n,String targetKey) 
-	{
-		System.out.println(targetKey);
-		if(n==null||n.getNext()==null) {return;}
-		if(n.getNext().key.equals(targetKey)) {
-			n.getNext().deleteNode();
-			deleteDuplicates(n.getNext(),(String)targetKey);
-			return;
-		}
-		deleteDuplicates(n.getNext(),(String)targetKey);
-		if(n.key.equals(targetKey)) {
-			deleteDuplicates(n.getNext(),(String) n.getNext().key); 
-		}
+//	private static void deleteDuplicates(Node n,String targetKey) 
+//	{
+	
+//		if(n==null||n.getNext()==null) {return;}
+//		if(n.getNext().key.equals(targetKey)) {
+//			n.getNext().deleteNode();
+//			deleteDuplicates(n.getNext(),(String)targetKey);
+//			return;
+//		}
+//		deleteDuplicates(n.getNext(),(String)targetKey);
+//		if(n.key.equals(targetKey)) {
+//			deleteDuplicates(n.getNext(),(String) n.getNext().key); 
+//		}
 		
-		return;
+//	}
+	
+	public static boolean alphabeticallyFirst(String s1, String s2) 
+	{
+		return (s1.compareTo(s2)<0); 
+		
 	}
 	
 	
