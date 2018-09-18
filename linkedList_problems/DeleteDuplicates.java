@@ -15,7 +15,8 @@ public class DeleteDuplicates<Key,Value extends Comparable<Key>> {
 		list.printList();
 		System.out.println();
 		
-		deleteDuplicates_NRuntime(list);
+		//deleteDuplicates_NRuntime(list);
+		deleteDuplicates_spaceOptimised(list);
 		list.printList();
 		
 	}
@@ -37,6 +38,29 @@ public class DeleteDuplicates<Key,Value extends Comparable<Key>> {
 		}
 		
 	}
+	
+	public static void deleteDuplicates_spaceOptimised(LinkedList list) 
+	{
+		deleteDuplicates(list.getHead(),(String) list.getHead().key);
+	}
+	
+	private static void deleteDuplicates(Node n,String targetKey) 
+	{
+		System.out.println(targetKey);
+		if(n==null||n.getNext()==null) {return;}
+		if(n.getNext().key.equals(targetKey)) {
+			n.getNext().deleteNode();
+			deleteDuplicates(n.getNext(),(String)targetKey);
+			return;
+		}
+		deleteDuplicates(n.getNext(),(String)targetKey);
+		if(n.key.equals(targetKey)) {
+			deleteDuplicates(n.getNext(),(String) n.getNext().key); 
+		}
+		
+		return;
+	}
+	
 	
 	
 }

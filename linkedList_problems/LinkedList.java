@@ -21,6 +21,8 @@ public class LinkedList<Key, Value extends Comparable<Key>> {
 		n2.setPrev(tmpPrev);
 	}
 	
+	
+	
 	public void put(Key key, Value val) 
 	{
 		put(head, key,val);
